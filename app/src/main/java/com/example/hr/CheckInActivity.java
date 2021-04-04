@@ -2,32 +2,24 @@ package com.example.hr;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
+import com.example.hr.adapter.CheckInAdapter;
 import com.example.hr.api.ApiService;
 import com.example.hr.model.CheckInOut;
 import com.example.hr.model.Data;
-import com.example.hr.model.PostCheckIn;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -77,7 +69,7 @@ public class CheckInActivity extends AppCompatActivity {
         ApiService.apiService.getListCheckInOut(5, date).enqueue(new Callback<Data>() {
             @Override
             public void onResponse(Call<Data> call, Response<Data> response) {
-                Toast.makeText(CheckInActivity.this, "Call API Success", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(CheckInActivity.this, "Call API Success", Toast.LENGTH_SHORT).show();
                 data = response.body();
                 for (HashMap<String, Object> check_in : data.getData()) {
                     try {
