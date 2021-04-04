@@ -78,7 +78,7 @@
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="34dp"
-                android:text="2"
+                android:text="Lịch Sử Chấm Công"
                 android:textAlignment="center"
                 android:textSize="18sp" />
         </TableRow>
