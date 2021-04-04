@@ -1,5 +1,6 @@
 package com.example.hr;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -17,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setLogo(R.drawable.logo_main);    //Icon muốn hiện thị
+        actionBar.setDisplayUseLogoEnabled(true);
 
         SharedPreferences preferences =
                 getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);

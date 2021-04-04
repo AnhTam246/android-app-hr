@@ -71,6 +71,18 @@
                 app:srcCompat="@drawable/check_in_out_menu" />
         </TableRow>
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="34dp"
+                android:text="2"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+        </TableRow>
+
     </TableLayout>
     <TableLayout
         android:layout_width="210dp"
@@ -94,7 +106,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tvTitle"
                 android:layout_width="100dp"
                 android:layout_height="34dp"
                 android:textAlignment="center"

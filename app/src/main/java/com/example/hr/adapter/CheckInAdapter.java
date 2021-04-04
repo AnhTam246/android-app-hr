@@ -59,9 +59,17 @@ public class CheckInAdapter extends BaseAdapter {
         }
 
         CheckInOut checkInOut = listCheckIn.get(position);
+        String check_in = new SimpleDateFormat("HH:mm:ss").format(checkInOut.check_in);
+        if(check_in.equals("00:00:00")) {
+            check_in = "";
+        }
+        String check_out = new SimpleDateFormat("HH:mm:ss").format(checkInOut.check_out);
+        if(check_out.equals("00:00:00")) {
+            check_out = "";
+        }
         holder.tvDate.setText(new SimpleDateFormat("dd-MM-yyyy").format(checkInOut.check_in_day));
-        holder.tvCheckIn.setText(new SimpleDateFormat("HH:mm:ss").format(checkInOut.check_in));
-        holder.tvCheckOut.setText(new SimpleDateFormat("HH:mm:ss").format(checkInOut.check_out));
+        holder.tvCheckIn.setText(check_in);
+        holder.tvCheckOut.setText(check_out);
 
         return convertView;
     }

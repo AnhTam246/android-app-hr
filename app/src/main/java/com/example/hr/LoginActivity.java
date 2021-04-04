@@ -1,5 +1,6 @@
 package com.example.hr;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -16,6 +17,7 @@ import com.example.hr.api.ApiService;
 import com.example.hr.model.Data;
 import com.example.hr.model.Staff;
 import com.example.hr.model.StaffLogin;
+import com.google.gson.Gson;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -46,6 +48,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setLogo(R.drawable.logo_main);    //Icon muốn hiện thị
+        actionBar.setDisplayUseLogoEnabled(true);
+
         txtEmail = findViewById(R.id.txtEmail);
         txtPass = findViewById(R.id.txtPass);
         btnLogin = findViewById(R.id.btnLogin);
@@ -64,6 +71,10 @@ public class LoginActivity extends AppCompatActivity {
     private void clickLogin() {
         String email = txtEmail.getText().toString().trim();
         String password = txtPass.getText().toString().trim();
+        if(email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(LoginActivity.this, "Nhập email và mật khẩu!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 //        Integer idLogin = 0;
         StaffLogin staffLogin = null;
 
@@ -92,13 +103,12 @@ public class LoginActivity extends AppCompatActivity {
         if(check == true) {
             SharedPreferences preferences =
                     getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);
-            preferences.edit().putInt("idLogin", staffLogin.getId());
-            preferences.edit().putString("firstname", staffLogin.getFirstname());
-            preferences.edit().putString("lastname", staffLogin.getLastname());
-            preferences.edit().putInt("department", staffLogin.getDepartment());
-            preferences.edit().putBoolean("isManager", staffLogin.isManager());
-            preferences.edit().putBoolean("status", staffLogin.isStatus());
-            preferences.edit().commit();
+
+            SharedPreferences.Editor prefsEditor = preferences.edit();
+            Gson gson = new Gson();
+            String json = gson.toJson(staffLogin);
+            prefsEditor.putString("StaffLogin", json);
+            prefsEditor.commit();
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         } else {
