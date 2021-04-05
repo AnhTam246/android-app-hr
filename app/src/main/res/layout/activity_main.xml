@@ -8,7 +8,8 @@
 
     <TableLayout
         android:layout_width="210dp"
-        android:layout_height="match_parent">
+        android:layout_height="717dp"
+        android:layout_marginTop="15px">
 
         <TableRow
             android:layout_width="210dp"
@@ -31,8 +32,9 @@
                 android:id="@+id/textView"
                 android:layout_width="100dp"
                 android:layout_height="34dp"
-                android:textAlignment="center"
                 android:text="Lịch Sử Chấm Công"
+                android:textAlignment="center"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -44,7 +46,7 @@
                 android:id="@+id/check_in_out3"
                 android:layout_width="50dp"
                 android:layout_height="100dp"
-                app:srcCompat="@drawable/check_in_out_menu" />
+                app:srcCompat="@drawable/date_special_menu" />
         </TableRow>
 
         <TableRow
@@ -55,8 +57,9 @@
                 android:id="@+id/textView5"
                 android:layout_width="100dp"
                 android:layout_height="34dp"
+                android:text="Danh Sách Ngày Lễ"
                 android:textAlignment="center"
-                android:text="Lịch Sử Chấm Công"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -80,13 +83,16 @@
                 android:layout_height="34dp"
                 android:text="Lịch Sử Chấm Công"
                 android:textAlignment="center"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </TableRow>
 
     </TableLayout>
+
     <TableLayout
         android:layout_width="210dp"
-        android:layout_height="match_parent">
+        android:layout_height="719dp"
+        android:layout_marginTop="15px">
 
         <TableRow
             android:layout_width="210dp"
@@ -94,10 +100,10 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/check_in_out2"
+                android:id="@+id/time_leave"
                 android:layout_width="210dp"
                 android:layout_height="100dp"
-                app:srcCompat="@drawable/check_in_out_menu" />
+                app:srcCompat="@drawable/time_leave_menu" />
 
         </TableRow>
 
@@ -109,8 +115,9 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="100dp"
                 android:layout_height="34dp"
+                android:text="Bổ Sung Công Phép"
                 android:textAlignment="center"
-                android:text="Lịch Sử Chấm Công"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -122,19 +129,20 @@
                 android:id="@+id/check_in_out4"
                 android:layout_width="50dp"
                 android:layout_height="100dp"
-                app:srcCompat="@drawable/check_in_out_menu" />
+                app:srcCompat="@drawable/request_ot_menu" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="100dp"
                 android:layout_height="34dp"
-                android:text="Lịch Sử Chấm Công"
+                android:text="Danh Sách Tăng Ca"
                 android:textAlignment="center"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </TableRow>
     </TableLayout>
