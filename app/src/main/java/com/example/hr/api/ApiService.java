@@ -1,12 +1,8 @@
 package com.example.hr.api;
 
 import com.example.hr.model.Data;
-import com.example.hr.model.PostCheckIn;
-import com.example.hr.model.Staff;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -29,9 +25,6 @@ public interface ApiService {
 
     @GET("/staff/list")
     Call<Data> getListStaff();
-
-    @POST("/check-in-out/get-staff-time")
-    Call<Data> getListCheckIn(@Body PostCheckIn postCheckIn);
 
     @GET("/check-in-out/get-staff-time-get")
     Call<Data> getListCheckInOut(@Query("staff_id") Integer staff_id,

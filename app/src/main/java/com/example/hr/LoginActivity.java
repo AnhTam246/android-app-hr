@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -59,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
 
         data = new Data();
         getListStaff();
+        checkLoginLoginActivity();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +133,16 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void checkLoginLoginActivity() {
+        SharedPreferences preferences = getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);
+        String json = preferences.getString("StaffLogin", "");
+
+        if(json != "") {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
     public static String md5(final String s) {
