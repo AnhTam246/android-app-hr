@@ -22,6 +22,7 @@ import java.text.SimpleDateFormat;
 
 public class MainActivity extends AppCompatActivity {
     ImageView check_in_out;
+    ImageView time_leave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,40 +38,20 @@ public class MainActivity extends AppCompatActivity {
 
         Integer idLogin = preferences.getInt("idLogin", 0);
         clickCheckInOut();
+        clickTimeLeave();
         checkLogin();
-//        String firstname = preferences.getString("firstname", "");
-//        Log.e("firstname", firstname.toString());
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
+    private void clickTimeLeave() {
+        time_leave = findViewById(R.id.time_leave);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.info:
-                // User chose the "Settings" item, show the app settings UI...
-                return true;
-
-            case R.id.logout:
-                SharedPreferences preferences = getSharedPreferences("com.example.hr",Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.clear();
-                editor.commit();
-                editor.apply();
-                finish();
-                Intent intent2 = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent2);
-                Toast.makeText(MainActivity.this, "Logout Success", Toast.LENGTH_SHORT).show();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+        time_leave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TimeLeaveActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void clickCheckInOut() {
@@ -106,6 +87,37 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
             Toast.makeText(this, "Vui lòng đăng nhập", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.info:
+                // User chose the "Settings" item, show the app settings UI...
+                return true;
+
+            case R.id.logout:
+                SharedPreferences preferences = getSharedPreferences("com.example.hr",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.clear();
+                editor.commit();
+                editor.apply();
+                finish();
+                Intent intent2 = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent2);
+                Toast.makeText(MainActivity.this, "Logout Success", Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }

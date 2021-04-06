@@ -30,6 +30,13 @@ public interface ApiService {
     Call<Data> getListCheckInOut(@Query("staff_id") Integer staff_id,
                                  @Query("y_m") String y_m);
 
+    @GET("/time-leave/summary-staff-time")
+    Call<Data> getListSummaryStaffTime(@Query("y_m") String y_m);
+
+    @GET("/time-leave/detail-time-leave-all")
+    Call<Data> getDetailTimeLeave(@Query("month_get") String month_get,
+                                  @Query("staff_id") Integer staff_id);
+
 //    @POST("/check-in-out/get-staff-time")
 //    Call<Data> getListCheckIn(@Field("staff_id") int staff_id, @Field("y_m") Date y_m);
 }

@@ -23,14 +23,11 @@ import com.example.hr.model.Data;
 import com.example.hr.model.StaffLogin;
 import com.google.gson.Gson;
 
-import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,6 +43,13 @@ public class CheckInActivity extends AppCompatActivity {
     EditText y_m;
     Button btnSearch;
     TextView tvTitle;
+
+    //Summary staff time
+    TextView tvTime;
+    TextView tvInLate;
+    TextView tvOutSoon;
+    TextView tvOt;
+    TextView tvNumberTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,41 +69,88 @@ public class CheckInActivity extends AppCompatActivity {
         String json = preferences.getString("StaffLogin", "");
         StaffLogin staffLogin = gson.fromJson(json, StaffLogin.class);
         data = new Data();
-        lvCheckin = (ListView) findViewById(R.id.lvCheckIn);
+        lvCheckin = (ListView) findViewById(R.id.lvTimeLeave);
         arrCheckIn = new ArrayList<>();
         String date = "2021-04-01";
         sendRequest(staffLogin.getId(), date);
+        getSummaryStaffTime(staffLogin.getId(), date);
         checkInAdapter = new CheckInAdapter(this, R.layout.item_check_in_out, arrCheckIn);
         lvCheckin.setAdapter(checkInAdapter);
 
-        btnSearch = findViewById(R.id.btnSearch);
+        btnSearch = findViewById(R.id.btnSearchTimeLeave);
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                y_m = findViewById(R.id.y_m);
+                y_m = findViewById(R.id.y_m_time_leave);
                 if(checkDateFormat(y_m.getText().toString()) == false) {
                     Toast.makeText(CheckInActivity.this, "Vui lòng nhập đúng định dạng yyyy-mm", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                tvTitle = findViewById(R.id.tvTitle);
+                tvTitle = findViewById(R.id.tvTitleTimeLeave);
                 if(y_m.getText().toString().isEmpty()) {
                     Toast.makeText(CheckInActivity.this, "Vui lòng nhập để tìm kiếm", Toast.LENGTH_SHORT).show();
                 } else {
-                    lvCheckin = (ListView) findViewById(R.id.lvCheckIn);
+                    lvCheckin = (ListView) findViewById(R.id.lvTimeLeave);
                     arrCheckIn = new ArrayList<>();
                     String date = y_m.getText().toString() + "-01";
                     sendRequest(staffLogin.getId(), date);
                     checkInAdapter = new CheckInAdapter(CheckInActivity.this, R.layout.item_check_in_out, arrCheckIn);
                     lvCheckin.setAdapter(checkInAdapter);
                     tvTitle.setText("Lịch Sử Chấm Công " + y_m.getText().toString());
+                    getSummaryStaffTime(staffLogin.getId(), date);
                 }
             }
         });
     }
 
+    private void getSummaryStaffTime(Integer id, String date) {
+        ApiService.apiService.getListSummaryStaffTime(date).enqueue(new Callback<Data>() {
+            @Override
+            public void onResponse(Call<Data> call, Response<Data> response) {
+                data = response.body();
+                for (HashMap<String, Object> summary : data.getData()) {
+                    //System.out.println((int) Double.parseDouble(summary.get("staff_id").toString()));
+                    if((int) Double.parseDouble(summary.get("staff_id").toString()) == id) {
+                        tvTime = findViewById(R.id.tvTime);
+                        tvInLate = findViewById(R.id.tvInLate);
+                        tvOutSoon = findViewById(R.id.tvOutSoon);
+                        tvOt = findViewById(R.id.tvOt);
+                        tvNumberTime = findViewById(R.id.tvNumberTime);
+
+                        if(summary.get("sum_time") != null) {
+                            tvTime.setText(summary.get("sum_time").toString());
+                        }
+
+                        if(summary.get("sum_in_late") != null) {
+                            tvInLate.setText(summary.get("sum_in_late").toString());
+                        }
+
+                        if(summary.get("sum_out_soon") != null) {
+                            tvOutSoon.setText(summary.get("sum_out_soon").toString());
+                        }
+
+                        if(summary.get("sum_ot") != null) {
+                            tvOt.setText(summary.get("sum_ot").toString());
+                        }
+
+                        if(summary.get("total_number_time_all") != null) {
+                            tvNumberTime.setText(summary.get("total_number_time_all").toString());
+                        }
+
+
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Data> call, Throwable t) {
+                Toast.makeText(CheckInActivity.this, "Call API Summary Staff Time Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private void sendRequest(Integer idLogin, String date) {
-        System.out.println(idLogin);
         ApiService.apiService.getListCheckInOut(idLogin, date).enqueue(new Callback<Data>() {
             @Override
             public void onResponse(Call<Data> call, Response<Data> response) {
@@ -124,7 +175,6 @@ public class CheckInActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
-                System.out.println(data.getData());
                 checkInAdapter.notifyDataSetChanged();
             }
 
