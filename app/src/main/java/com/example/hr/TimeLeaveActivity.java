@@ -148,7 +148,7 @@ public class TimeLeaveActivity extends AppCompatActivity {
                 finish();
                 Intent intent3 = new Intent(TimeLeaveActivity.this, LoginActivity.class);
                 startActivity(intent3);
-                Toast.makeText(TimeLeaveActivity.this, "Logout Success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TimeLeaveActivity.this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
                 return true;
 
             default:

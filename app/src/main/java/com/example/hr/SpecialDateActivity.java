@@ -98,7 +98,7 @@ public class SpecialDateActivity extends AppCompatActivity {
         ApiService.apiService.getListSpecialDate(date).enqueue(new Callback<Data>() {
             @Override
             public void onResponse(Call<Data> call, Response<Data> response) {
-                Toast.makeText(SpecialDateActivity.this, "Call API Special Date Success", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(SpecialDateActivity.this, "Call API Special Date Success", Toast.LENGTH_SHORT).show();
                 data = response.body();
 
                 for (HashMap<String, Object> special_date : data.getData()) {
@@ -148,7 +148,7 @@ public class SpecialDateActivity extends AppCompatActivity {
                 finish();
                 Intent intent3 = new Intent(SpecialDateActivity.this, LoginActivity.class);
                 startActivity(intent3);
-                Toast.makeText(SpecialDateActivity.this, "Logout Success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SpecialDateActivity.this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
                 return true;
 
             default:

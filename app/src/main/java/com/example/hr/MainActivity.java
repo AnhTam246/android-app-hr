@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 Intent intent2 = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent2);
-                Toast.makeText(MainActivity.this, "Logout Success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
                 return true;
 
             default:

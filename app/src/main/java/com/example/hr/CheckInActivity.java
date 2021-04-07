@@ -214,7 +214,7 @@ public class CheckInActivity extends AppCompatActivity {
                 finish();
                 Intent intent3 = new Intent(CheckInActivity.this, LoginActivity.class);
                 startActivity(intent3);
-                Toast.makeText(CheckInActivity.this, "Logout Success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CheckInActivity.this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
                 return true;
 
             default:

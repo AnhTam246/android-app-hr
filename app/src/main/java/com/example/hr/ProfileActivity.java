@@ -154,7 +154,7 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
                 Intent intent3 = new Intent(ProfileActivity.this, LoginActivity.class);
                 startActivity(intent3);
-                Toast.makeText(ProfileActivity.this, "Logout Success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileActivity.this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
                 return true;
 
             default:
