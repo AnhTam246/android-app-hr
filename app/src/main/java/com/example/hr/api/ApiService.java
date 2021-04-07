@@ -1,6 +1,8 @@
 package com.example.hr.api;
 
 import com.example.hr.model.Data;
+import com.example.hr.model.DataOneObject;
+import com.example.hr.model.StaffProfile;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -37,6 +39,8 @@ public interface ApiService {
     Call<Data> getDetailTimeLeave(@Query("month_get") String month_get,
                                   @Query("staff_id") Integer staff_id);
 
+    @GET("/staff/get-profile")
+    Call<DataOneObject> getProfileStaff(@Query("staff_id") Integer staff_id);
 //    @POST("/check-in-out/get-staff-time")
 //    Call<Data> getListCheckIn(@Field("staff_id") int staff_id, @Field("y_m") Date y_m);
 }

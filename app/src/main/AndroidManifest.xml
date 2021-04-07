@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hr"
         android:usesCleartextTraffic="true">
-        <activity android:name=".TimeLeaveActivity"></activity>
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".TimeLeaveActivity" />
         <activity android:name=".CheckInActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity">

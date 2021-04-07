@@ -1,6 +1,7 @@
 package com.example.hr.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,11 @@ import android.widget.TextView;
 import com.example.hr.R;
 import com.example.hr.model.TimeLeave;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class TimeLeaveAdapter extends BaseAdapter {
     private Context context;
@@ -89,9 +93,37 @@ public class TimeLeaveAdapter extends BaseAdapter {
                 break;
             case 6:
                 type = "Phép nghỉ kết hôn";
+                String day_from = time_leave.day_time_leave.substring(0, 10);
+                String day_to = time_leave.day_time_leave.substring(15);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    Date first_date = sdf.parse(day_from);
+                    Date second_date = sdf.parse(day_to);
+
+                    long difference  = Math.abs(second_date.getTime() - first_date.getTime());
+                    long differenceDates = difference / (24 * 60 * 60 * 1000) + 1;
+                    number_time = Long.toString(differenceDates);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 break;
             case 7:
                 type = "Phép nghỉ ma chay";
+                String day_from_type_7 = time_leave.day_time_leave.substring(0, 10);
+                String day_to_type_7 = time_leave.day_time_leave.substring(15);
+                SimpleDateFormat sdf_type_7 = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    Date first_date = sdf_type_7.parse(day_from_type_7);
+                    Date second_date = sdf_type_7.parse(day_to_type_7);
+
+                    long difference_type_7  = Math.abs(second_date.getTime() - first_date.getTime());
+                    long differenceDates_type_7 = difference_type_7 / (24 * 60 * 60 * 1000) + 1;
+                    number_time = Long.toString(differenceDates_type_7);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 break;
             default:
                 break;
@@ -110,5 +142,14 @@ public class TimeLeaveAdapter extends BaseAdapter {
         holder.tvApproveTimeLeave.setText(approve);
 
         return convertView;
+    }
+
+    public static long getDateDiff(SimpleDateFormat format, String oldDate, String newDate) {
+        try {
+            return TimeUnit.DAYS.convert(format.parse(newDate).getTime() - format.parse(oldDate).getTime(), TimeUnit.MILLISECONDS);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 }

@@ -199,8 +199,10 @@ public class CheckInActivity extends AppCompatActivity {
                 Intent intent = new Intent(CheckInActivity.this, MainActivity.class);
                 startActivity(intent);
                 return true;
+
             case R.id.info:
-                // User chose the "Settings" item, show the app settings UI...
+                Intent intent2 = new Intent(CheckInActivity.this, ProfileActivity.class);
+                startActivity(intent2);
                 return true;
 
             case R.id.logout:
@@ -210,8 +212,8 @@ public class CheckInActivity extends AppCompatActivity {
                 editor.commit();
                 editor.apply();
                 finish();
-                Intent intent2 = new Intent(CheckInActivity.this, LoginActivity.class);
-                startActivity(intent2);
+                Intent intent3 = new Intent(CheckInActivity.this, LoginActivity.class);
+                startActivity(intent3);
                 Toast.makeText(CheckInActivity.this, "Logout Success", Toast.LENGTH_SHORT).show();
                 return true;
 

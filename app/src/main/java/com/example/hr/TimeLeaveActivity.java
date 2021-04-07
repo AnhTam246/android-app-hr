@@ -96,11 +96,15 @@ public class TimeLeaveActivity extends AppCompatActivity {
         ApiService.apiService.getDetailTimeLeave(date, id).enqueue(new Callback<Data>() {
             @Override
             public void onResponse(Call<Data> call, Response<Data> response) {
-                Toast.makeText(TimeLeaveActivity.this, "Call API Time leave Success", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(TimeLeaveActivity.this, "Call API Time leave Success", Toast.LENGTH_SHORT).show();
                 data = response.body();
                 for (HashMap<String, Object> time_leave : data.getData()) {
                     String day_time_leave = time_leave.get("day_time_leave").toString();
-                    String number_time = time_leave.get("time").toString();
+                    String number_time = "";
+                    if(time_leave.get("time") != null) {
+                        number_time = time_leave.get("time").toString();
+                    }
+
                     Integer type = (int) Double.parseDouble(time_leave.get("type").toString());
                     Integer is_approved = (int) Double.parseDouble(time_leave.get("is_approved").toString());
 
@@ -131,7 +135,8 @@ public class TimeLeaveActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.info:
-                // User chose the "Settings" item, show the app settings UI...
+                Intent intent2 = new Intent(TimeLeaveActivity.this, ProfileActivity.class);
+                startActivity(intent2);
                 return true;
 
             case R.id.logout:
@@ -141,8 +146,8 @@ public class TimeLeaveActivity extends AppCompatActivity {
                 editor.commit();
                 editor.apply();
                 finish();
-                Intent intent2 = new Intent(TimeLeaveActivity.this, LoginActivity.class);
-                startActivity(intent2);
+                Intent intent3 = new Intent(TimeLeaveActivity.this, LoginActivity.class);
+                startActivity(intent3);
                 Toast.makeText(TimeLeaveActivity.this, "Logout Success", Toast.LENGTH_SHORT).show();
                 return true;
 

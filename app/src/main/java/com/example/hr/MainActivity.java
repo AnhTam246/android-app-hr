@@ -33,10 +33,6 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setLogo(R.drawable.logo_main);
         actionBar.setDisplayUseLogoEnabled(true);
 
-        SharedPreferences preferences =
-                getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);
-
-        Integer idLogin = preferences.getInt("idLogin", 0);
         clickCheckInOut();
         clickTimeLeave();
         checkLogin();
@@ -101,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.info:
-                // User chose the "Settings" item, show the app settings UI...
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
                 return true;
 
             case R.id.logout:
