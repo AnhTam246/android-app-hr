@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,11 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hr.api.ApiService;
-import com.example.hr.model.Data;
 import com.example.hr.model.DataOneObject;
 import com.example.hr.model.StaffLogin;
-import com.example.hr.model.StaffProfile;
-import com.example.hr.model.TimeLeave;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
