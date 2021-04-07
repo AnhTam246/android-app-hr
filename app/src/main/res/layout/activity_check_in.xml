@@ -46,7 +46,7 @@
                 android:outlineAmbientShadowColor="#FFFFFF"
                 android:outlineSpotShadowColor="#FFFFFF"
                 android:shadowColor="#FFFFFF"
-                android:text="Search"
+                android:text="Tìm kiếm"
                 app:rippleColor="#FFFFFF"
                 app:strokeColor="#FFFFFF" />
         </LinearLayout>

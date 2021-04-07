@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TimeLeaveActivity">
+    tools:context=".SpecialDateActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,24 +21,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Năm-tháng: "
+                android:text="Năm: "
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textSize="18dp" />
+                android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/y_m_time_leave"
+                android:id="@+id/y_special_date"
                 android:layout_width="171dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="yyyy-mm"
+                android:hint="yyyy"
                 android:inputType="textPersonName"
                 android:textColor="@color/black" />
 
             <Button
-                android:id="@+id/btnSearchTimeLeave"
+                android:id="@+id/btnSearchSpecialDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -51,10 +51,10 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tvTitleTimeLeave"
+            android:id="@+id/tvTitleSpecialDate"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Bổ Sung Công Phép 2021-04"
+            android:text="Danh Sách Ngày Lễ 2021"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="24sp" />
@@ -66,41 +66,32 @@
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="86dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Ngày"
+                android:text="Từ ngày"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="70dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Công"
+                android:text="Đến ngày"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="136dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Loại"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView2"
                 android:layout_width="129dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Trạng thái"
+                android:text="Mô tả ngày lễ"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
         </LinearLayout>
 
         <ListView
-            android:id="@+id/lvTimeLeave"
+            android:id="@+id/lvSpecialDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

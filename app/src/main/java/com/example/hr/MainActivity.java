@@ -23,6 +23,7 @@ import java.text.SimpleDateFormat;
 public class MainActivity extends AppCompatActivity {
     ImageView check_in_out;
     ImageView time_leave;
+    ImageView special_date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,20 @@ public class MainActivity extends AppCompatActivity {
 
         clickCheckInOut();
         clickTimeLeave();
+        clickSpecialDate();
         checkLogin();
+    }
+
+    private void clickSpecialDate() {
+        special_date = findViewById(R.id.special_date);
+
+        special_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SpecialDateActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void clickTimeLeave() {

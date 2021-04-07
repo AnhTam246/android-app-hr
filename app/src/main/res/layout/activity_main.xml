@@ -43,7 +43,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/check_in_out3"
+                android:id="@+id/special_date"
                 android:layout_width="50dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/date_special_menu" />

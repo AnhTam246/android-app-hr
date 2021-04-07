@@ -41,6 +41,9 @@ public interface ApiService {
 
     @GET("/staff/get-profile")
     Call<DataOneObject> getProfileStaff(@Query("staff_id") Integer staff_id);
+
+    @GET("/special-date/list-special-date")
+    Call<Data> getListSpecialDate(@Query("special_date_from") String special_date_from);
 //    @POST("/check-in-out/get-staff-time")
 //    Call<Data> getListCheckIn(@Field("staff_id") int staff_id, @Field("y_m") Date y_m);
 }

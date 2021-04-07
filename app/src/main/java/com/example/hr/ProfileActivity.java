@@ -41,7 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView tvNumberPhoneProfile;
     TextView tvEmailProfile;
     TextView tvJoinedAtProfile;
-
+    TextView tvDayOfLeaveProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +85,7 @@ public class ProfileActivity extends AppCompatActivity {
                 tvNumberPhoneProfile = findViewById(R.id.tvNumberPhoneProfile);
                 tvEmailProfile = findViewById(R.id.tvEmailProfile);
                 tvJoinedAtProfile = findViewById(R.id.tvJoinedAtProfile);
+                tvDayOfLeaveProfile = findViewById(R.id.tvDayOfLeaveProfile);
 
                 if((int) Double.parseDouble(staff.get("gender").toString()) == 1) {
                     profile_image_male.setVisibility(View.VISIBLE);
@@ -105,6 +106,7 @@ public class ProfileActivity extends AppCompatActivity {
                 tvNumberPhoneProfile.setText(staff.get("phone_number").toString());
                 tvEmailProfile.setText(staff.get("email").toString());
                 tvJoinedAtProfile.setText(staff.get("joined_at").toString());
+                tvDayOfLeaveProfile.setText(staff.get("day_of_leave").toString());
 
             }
 
