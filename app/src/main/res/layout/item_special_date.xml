@@ -25,7 +25,7 @@
 
     <TextView
         android:id="@+id/tvNoteSpecialDate"
-        android:layout_width="214dp"
+        android:layout_width="205dp"
         android:layout_height="wrap_content"
         android:text="TextView"
         tools:layout_editor_absoluteX="249dp"

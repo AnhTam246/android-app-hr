@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hr"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SpecialDateActivity"></activity>
+        <activity android:name=".RequestOverTimeActivity"></activity>
+        <activity android:name=".SpecialDateActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".TimeLeaveActivity" />
         <activity android:name=".CheckInActivity" />

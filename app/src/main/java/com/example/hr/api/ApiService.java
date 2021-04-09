@@ -40,6 +40,11 @@ public interface ApiService {
 
     @GET("/special-date/list-special-date")
     Call<Data> getListSpecialDate(@Query("special_date_from") String special_date_from);
+
+    @GET("/special-date/get-request-ot")
+    Call<Data> getListRequestOt(@Query("special_date_from") String special_date_from,
+                                @Query("staff_request") Integer staff_request,
+                                @Query("department_request") Integer department_request);
 //    @POST("/check-in-out/get-staff-time")
 //    Call<Data> getListCheckIn(@Field("staff_id") int staff_id, @Field("y_m") Date y_m);
 }

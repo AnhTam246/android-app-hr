@@ -10,12 +10,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.example.hr.model.StaffLogin;
-import com.google.gson.Gson;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView check_in_out;
     ImageView time_leave;
     ImageView special_date;
+    ImageView request_ot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +34,20 @@ public class MainActivity extends AppCompatActivity {
         clickCheckInOut();
         clickTimeLeave();
         clickSpecialDate();
+        clickRequestOverTime();
         checkLogin();
+    }
+
+    private void clickRequestOverTime() {
+        request_ot = findViewById(R.id.request_ot);
+
+        request_ot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RequestOverTimeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void clickSpecialDate() {
