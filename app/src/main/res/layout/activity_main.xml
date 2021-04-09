@@ -116,7 +116,7 @@
                 android:id="@+id/tv_of_request_ot"
                 android:layout_width="100dp"
                 android:layout_height="34dp"
-                android:text="Danh Sách Tăng Ca"
+                android:text="Lịch Tăng Ca"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="18sp" />

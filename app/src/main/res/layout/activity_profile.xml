@@ -44,7 +44,7 @@
     <TextView
         android:id="@+id/tvDepartmentProfile"
         android:layout_width="246dp"
-        android:layout_height="35dp"
+        android:layout_height="55dp"
         android:layout_x="70dp"
         android:layout_y="220dp"
         android:hint="Name Department"
@@ -71,7 +71,7 @@
                 android:layout_weight="1"
                 android:text="Mã nhân viên: "
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvCodeProfile"
@@ -81,7 +81,7 @@
                 android:text="TextView"
                 android:textAlignment="inherit"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -92,23 +92,24 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView92"
+                android:id="@+id/textView22"
                 android:layout_width="10dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Số điện thoại: "
+                android:text="Ngày sinh: "
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/tvNumberPhoneProfile"
+                android:id="@+id/tvDobProfile"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
                 android:textAlignment="inherit"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -125,7 +126,7 @@
                 android:layout_weight="1"
                 android:text="Email: "
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvEmailProfile"
@@ -135,7 +136,34 @@
                 android:text="TextView"
                 android:textAlignment="inherit"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView92"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Số điện thoại: "
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvNumberPhoneProfile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textAlignment="inherit"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -152,7 +180,7 @@
                 android:layout_weight="1"
                 android:text="Ngày vào: "
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvJoinedAtProfile"
@@ -162,7 +190,7 @@
                 android:text="TextView"
                 android:textAlignment="inherit"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -178,9 +206,9 @@
                 android:layout_width="10dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Ngày phép còn: "
+                android:text="Ngày phép: "
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvDayOfLeaveProfile"
@@ -190,13 +218,13 @@
                 android:text="TextView"
                 android:textAlignment="inherit"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             android:layout_weight="1"
             android:orientation="vertical"></LinearLayout>
 

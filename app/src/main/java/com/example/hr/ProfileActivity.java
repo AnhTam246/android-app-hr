@@ -34,6 +34,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView tvNameProfile;
     TextView tvDepartmentProfile;
     TextView tvCodeProfile;
+    TextView tvDobProfile;
     TextView tvNumberPhoneProfile;
     TextView tvEmailProfile;
     TextView tvJoinedAtProfile;
@@ -82,6 +83,7 @@ public class ProfileActivity extends AppCompatActivity {
                 tvEmailProfile = findViewById(R.id.tvEmailProfile);
                 tvJoinedAtProfile = findViewById(R.id.tvJoinedAtProfile);
                 tvDayOfLeaveProfile = findViewById(R.id.tvDayOfLeaveProfile);
+                tvDobProfile = findViewById(R.id.tvDobProfile);
 
                 if((int) Double.parseDouble(staff.get("gender").toString()) == 1) {
                     profile_image_male.setVisibility(View.VISIBLE);
@@ -99,6 +101,7 @@ public class ProfileActivity extends AppCompatActivity {
                 }
 
                 tvCodeProfile.setText(staff.get("code").toString());
+                tvDobProfile.setText(staff.get("dob").toString());
                 tvNumberPhoneProfile.setText(staff.get("phone_number").toString());
                 tvEmailProfile.setText(staff.get("email").toString());
                 tvJoinedAtProfile.setText(staff.get("joined_at").toString());
