@@ -109,7 +109,6 @@ public class TransferActivity extends AppCompatActivity {
                     Boolean old_manager_approved =  Boolean.parseBoolean(trans_fer.get("old_manager_approved").toString());
                     Boolean new_manager_approved =  Boolean.parseBoolean(trans_fer.get("new_manager_approved").toString());
                     Boolean manager_approved =  Boolean.parseBoolean(trans_fer.get("manager_approved").toString());
-//
 
                     arrTransfer.add(new Transfer( staff_transfer,old_department_name,
                             new_department_name, old_manager_approved,
