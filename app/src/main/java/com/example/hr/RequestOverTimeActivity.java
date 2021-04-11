@@ -73,12 +73,12 @@ public class RequestOverTimeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 y_request_ot = findViewById(R.id.y_request_ot);
-                if(checkYearFormat(y_request_ot.getText().toString()) == false) {
+                if (checkYearFormat(y_request_ot.getText().toString()) == false) {
                     Toast.makeText(RequestOverTimeActivity.this, "Vui lòng nhập đúng định dạng yyyy", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 tvTitleRequestOt = findViewById(R.id.tvTitleRequestOt);
-                if(y_request_ot.getText().toString().isEmpty()) {
+                if (y_request_ot.getText().toString().isEmpty()) {
                     Toast.makeText(RequestOverTimeActivity.this, "Vui lòng nhập để tìm kiếm", Toast.LENGTH_SHORT).show();
                 } else {
                     lvSpecialDate = (ListView) findViewById(R.id.lvSpecialDate);
@@ -106,13 +106,13 @@ public class RequestOverTimeActivity extends AppCompatActivity {
 
                 for (HashMap<String, Object> special_date : data.getData()) {
 
-                    if((int) Double.parseDouble(special_date.get("type_day").toString()) == 2) {
+                    if ((int) Double.parseDouble(special_date.get("type_day").toString()) == 2) {
                         String list_staff_ot = "";
-                        if(special_date.get("staff_ot") != null) {
+                        if (special_date.get("staff_ot") != null) {
                             list_staff_ot = special_date.get("staff_ot").toString();
                         }
                         String id_staff_str = staff_id.toString();
-                        if(list_staff_ot.indexOf(id_staff_str) > -1 && (int) Double.parseDouble(special_date.get("is_approved").toString()) == 1) {
+                        if (list_staff_ot.indexOf(id_staff_str) > -1 && (int) Double.parseDouble(special_date.get("is_approved").toString()) == 1) {
                             String day_special_from = special_date.get("day_special_from").toString();
                             String day_special_to = special_date.get("day_special_to").toString();
                             String note = special_date.get("note").toString();
@@ -150,6 +150,14 @@ public class RequestOverTimeActivity extends AppCompatActivity {
                 startActivity(intent2);
                 return true;
 
+
+            case R.id.miContract:
+                startActivity(new Intent(RequestOverTimeActivity.this, ListContractActivity.class));
+                return true;
+            case R.id.miSalary:
+                startActivity(new Intent(RequestOverTimeActivity.this, ListSalaryActivity.class));
+                return true;
+
             case R.id.logout:
                 SharedPreferences preferences = getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
@@ -171,21 +179,21 @@ public class RequestOverTimeActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);
         String json = preferences.getString("StaffLogin", "");
 
-        if(json == "") {
+        if (json == "") {
             Intent intent = new Intent(RequestOverTimeActivity.this, LoginActivity.class);
             startActivity(intent);
             Toast.makeText(this, "Vui lòng đăng nhập", Toast.LENGTH_SHORT).show();
         }
     }
 
-    static Boolean checkYearFormat(String date){
+    static Boolean checkYearFormat(String date) {
         if (date == null || !date.matches("\\d{4}"))
             return false;
-        SimpleDateFormat format=new SimpleDateFormat("yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy");
         try {
             format.parse(date);
             return true;
-        }catch (ParseException e){
+        } catch (ParseException e) {
             return false;
         }
     }

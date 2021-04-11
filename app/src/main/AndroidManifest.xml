@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Hr"
         android:usesCleartextTraffic="true">
         <activity android:name=".TransferActivity"></activity>
+        <activity android:name=".DetailSalaryActivity"></activity>
+        <activity android:name=".ListSalaryActivity" />
+        <activity android:name=".ListContractActivity" />
         <activity android:name=".RequestOverTimeActivity" />
         <activity android:name=".SpecialDateActivity" />
         <activity android:name=".ProfileActivity" />

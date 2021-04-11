@@ -85,7 +85,7 @@ public class ProfileActivity extends AppCompatActivity {
                 tvDayOfLeaveProfile = findViewById(R.id.tvDayOfLeaveProfile);
                 tvDobProfile = findViewById(R.id.tvDobProfile);
 
-                if((int) Double.parseDouble(staff.get("gender").toString()) == 1) {
+                if ((int) Double.parseDouble(staff.get("gender").toString()) == 1) {
                     profile_image_male.setVisibility(View.VISIBLE);
                 } else {
                     profile_image_female.setVisibility(View.VISIBLE);
@@ -94,7 +94,7 @@ public class ProfileActivity extends AppCompatActivity {
                 tvNameProfile.setText(staff.get("firstname").toString() + " " + staff.get("lastname").toString());
                 tvDepartmentProfile.setText("-- " + staff.get("department_name").toString() + " --");
 
-                if(Boolean.parseBoolean(staff.get("is_manager").toString()) == true) {
+                if (Boolean.parseBoolean(staff.get("is_manager").toString()) == true) {
                     tvDepartmentProfile.setText("-- " + staff.get("department_name").toString() + " -- Quản lý --");
                 } else {
                     tvDepartmentProfile.setText("-- " + staff.get("department_name").toString() + " -- Nhân viên --");
@@ -121,7 +121,7 @@ public class ProfileActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);
         String json = preferences.getString("StaffLogin", "");
 
-        if(json == "") {
+        if (json == "") {
             Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
             startActivity(intent);
             Toast.makeText(this, "Vui lòng đăng nhập", Toast.LENGTH_SHORT).show();
@@ -148,8 +148,15 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(intent2);
                 return true;
 
+            case R.id.miContract:
+                startActivity(new Intent(ProfileActivity.this, ListContractActivity.class));
+                return true;
+            case R.id.miSalary:
+                startActivity(new Intent(ProfileActivity.this, ListSalaryActivity.class));
+                return true;
+
             case R.id.logout:
-                SharedPreferences preferences = getSharedPreferences("com.example.hr",Context.MODE_PRIVATE);
+                SharedPreferences preferences = getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.clear();
                 editor.commit();

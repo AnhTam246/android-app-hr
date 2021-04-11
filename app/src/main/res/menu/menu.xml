@@ -8,6 +8,12 @@
         app:showAsAction="never" />
     <!-- Settings, should always be in the overflow -->
     <item
+        android:id="@+id/miContract"
+        android:title="Hợp đồng" />
+    <item
+        android:id="@+id/miSalary"
+        android:title="Bảng lương" />
+    <item
         android:id="@+id/logout"
         android:title="Đăng xuất"
         app:showAsAction="never" />
