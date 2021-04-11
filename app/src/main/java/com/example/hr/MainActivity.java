@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView special_date;
     ImageView request_ot;
     ImageView main_transfer;
+    ImageView contract_menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +37,21 @@ public class MainActivity extends AppCompatActivity {
         clickTimeLeave();
         clickSpecialDate();
         clickRequestOverTime();
-        checkLogin();
         clickTransfer();
+        clickContract();
+        checkLogin();
+    }
+
+    private void clickContract() {
+        contract_menu = findViewById(R.id.contract_menu);
+
+        contract_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ListContractActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void clickRequestOverTime() {
@@ -139,10 +153,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
 
-
-            case R.id.miContract:
-                startActivity(new Intent(MainActivity.this, ListContractActivity.class));
-                return true;
             case R.id.miSalary:
                 startActivity(new Intent(MainActivity.this, ListSalaryActivity.class));
                 return true;

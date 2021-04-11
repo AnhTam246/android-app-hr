@@ -63,6 +63,31 @@
                 android:textSize="18sp" />
         </TableRow>
 
+        <TableRow
+            android:layout_width="210dp"
+            android:layout_height="260dp">
+
+            <ImageView
+                android:id="@+id/contract_menu"
+                android:layout_width="205dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/contract_menu" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="100dp"
+                android:layout_height="34dp"
+                android:text="Hợp Đồng"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </TableRow>
+
     </TableLayout>
 
     <TableLayout
