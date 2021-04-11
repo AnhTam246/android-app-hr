@@ -204,6 +204,12 @@ public class CheckInActivity extends AppCompatActivity {
                 Intent intent2 = new Intent(CheckInActivity.this, ProfileActivity.class);
                 startActivity(intent2);
                 return true;
+            case R.id.miContract:
+                startActivity(new Intent(CheckInActivity.this, ListContractActivity.class));
+                return true;
+            case R.id.miSalary:
+                startActivity(new Intent(CheckInActivity.this, ListSalaryActivity.class));
+                return true;
 
             case R.id.logout:
                 SharedPreferences preferences = getSharedPreferences("com.example.hr",Context.MODE_PRIVATE);

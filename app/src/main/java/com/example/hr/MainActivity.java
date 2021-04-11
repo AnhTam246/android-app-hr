@@ -87,14 +87,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    static Boolean checkDateFormat(String date){
+    static Boolean checkDateFormat(String date) {
         if (date == null || !date.matches("\\d{4}-\\d{2}"))
             return false;
-        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
         try {
             format.parse(date);
             return true;
-        }catch (ParseException e){
+        } catch (ParseException e) {
             return false;
         }
     }
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);
         String json = preferences.getString("StaffLogin", "");
 
-        if(json == "") {
+        if (json == "") {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
             Toast.makeText(this, "Vui lòng đăng nhập", Toast.LENGTH_SHORT).show();
@@ -125,8 +125,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
 
+
+            case R.id.miContract:
+                startActivity(new Intent(MainActivity.this, ListContractActivity.class));
+                return true;
+            case R.id.miSalary:
+                startActivity(new Intent(MainActivity.this, ListSalaryActivity.class));
+                return true;
+
             case R.id.logout:
-                SharedPreferences preferences = getSharedPreferences("com.example.hr",Context.MODE_PRIVATE);
+                SharedPreferences preferences = getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.clear();
                 editor.commit();
@@ -141,4 +149,6 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
 }

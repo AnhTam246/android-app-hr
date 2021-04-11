@@ -74,12 +74,12 @@ public class SpecialDateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 y_special_date = findViewById(R.id.y_special_date);
-                if(checkYearFormat(y_special_date.getText().toString()) == false) {
+                if (checkYearFormat(y_special_date.getText().toString()) == false) {
                     Toast.makeText(SpecialDateActivity.this, "Vui lòng nhập đúng định dạng yyyy", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 tvTitleSpecialDate = findViewById(R.id.tvTitleSpecialDate);
-                if(y_special_date.getText().toString().isEmpty()) {
+                if (y_special_date.getText().toString().isEmpty()) {
                     Toast.makeText(SpecialDateActivity.this, "Vui lòng nhập để tìm kiếm", Toast.LENGTH_SHORT).show();
                 } else {
                     lvSpecialDate = (ListView) findViewById(R.id.lvSpecialDate);
@@ -102,7 +102,7 @@ public class SpecialDateActivity extends AppCompatActivity {
                 data = response.body();
 
                 for (HashMap<String, Object> special_date : data.getData()) {
-                    if((int) Double.parseDouble(special_date.get("type_day").toString()) == 1) {
+                    if ((int) Double.parseDouble(special_date.get("type_day").toString()) == 1) {
                         String day_special_from = special_date.get("day_special_from").toString();
                         String day_special_to = special_date.get("day_special_to").toString();
                         String note = special_date.get("note").toString();
@@ -138,6 +138,12 @@ public class SpecialDateActivity extends AppCompatActivity {
                 Intent intent2 = new Intent(SpecialDateActivity.this, ProfileActivity.class);
                 startActivity(intent2);
                 return true;
+            case R.id.miContract:
+                startActivity(new Intent(SpecialDateActivity.this, ListContractActivity.class));
+                return true;
+            case R.id.miSalary:
+                startActivity(new Intent(SpecialDateActivity.this, ListSalaryActivity.class));
+                return true;
 
             case R.id.logout:
                 SharedPreferences preferences = getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);
@@ -160,21 +166,21 @@ public class SpecialDateActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);
         String json = preferences.getString("StaffLogin", "");
 
-        if(json == "") {
+        if (json == "") {
             Intent intent = new Intent(SpecialDateActivity.this, LoginActivity.class);
             startActivity(intent);
             Toast.makeText(this, "Vui lòng đăng nhập", Toast.LENGTH_SHORT).show();
         }
     }
 
-    static Boolean checkYearFormat(String date){
+    static Boolean checkYearFormat(String date) {
         if (date == null || !date.matches("\\d{4}"))
             return false;
-        SimpleDateFormat format=new SimpleDateFormat("yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy");
         try {
             format.parse(date);
             return true;
-        }catch (ParseException e){
+        } catch (ParseException e) {
             return false;
         }
     }
