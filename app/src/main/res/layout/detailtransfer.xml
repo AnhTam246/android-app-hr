@@ -5,14 +5,14 @@
 
     <TextView
         android:id="@+id/tvStaffID"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/tvOld"
-        android:layout_width="wrap_content"
+        android:layout_width="44dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView" />
@@ -20,6 +20,27 @@
     <TextView
         android:id="@+id/tvNew"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvOldApp"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvnewApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvManager"
+        android:layout_width="33dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView" />

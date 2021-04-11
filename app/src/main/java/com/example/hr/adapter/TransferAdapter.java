@@ -38,7 +38,7 @@ public class TransferAdapter extends BaseAdapter {
     public long getItemId(int position) {return 0;}
 
     private class ViewHolder {
-        TextView txtStaffID, txtOld, txtNew;
+        TextView txtStaffID, txtOld, txtNew,txtOlApp,txtNewApp,txtMaAPP;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -50,15 +50,44 @@ public class TransferAdapter extends BaseAdapter {
             holder.txtStaffID = (TextView) convertView.findViewById(R.id.tvStaffID);
             holder.txtOld = (TextView) convertView.findViewById(R.id.tvOld);
             holder.txtNew = (TextView) convertView.findViewById(R.id.tvNew);
+            holder.txtOlApp = (TextView) convertView.findViewById(R.id.tvOldApp);
+            holder.txtNewApp = (TextView) convertView.findViewById(R.id.tvnewApp);
+            holder.txtMaAPP = (TextView) convertView.findViewById(R.id.tvManager);
+
             convertView.setTag(holder);
         } else {
             holder = (TransferAdapter.ViewHolder) convertView.getTag();
         }
 
         Transfer transfer = listTransfers.get(position);
-        holder.txtStaffID.setText(transfer.getStaff_id().toString());
-        holder.txtOld.setText(transfer.getOld_department().toString());
-        holder.txtNew.setText(transfer.getNew_department().toString());
+        holder.txtStaffID.setText(transfer.getStaff_transfer());
+        holder.txtOld.setText(transfer.getOld_department_name().toString());
+        holder.txtNew.setText(transfer.getNew_department_name());
+
+        String approve = "Chưa duyệt";
+        if(transfer.isOld_manager_approved() == true) {
+            approve = "duyệt";
+        } else if(transfer.isOld_manager_approved() == false) {
+            approve = "chưa duyệt";
+        }
+
+        String approve1 = "Chưa duyệt";
+        if(transfer.isNew_manager_approved() == true) {
+            approve1 = "duyệt";
+        } else if(transfer.isNew_manager_approved() == false) {
+            approve1 = "chưa duyệt";
+        }
+
+        String approve2 = "Chưa duyệt";
+        if(transfer.isManager_approved() == true) {
+            approve2 = "duyệt";
+        } else if(transfer.isManager_approved() == false) {
+            approve2 = "chưa duyệt";
+        }
+
+        holder.txtOlApp.setText(approve);
+        holder.txtNewApp.setText(approve1);
+        holder.txtMaAPP.setText(approve2);
 
         return convertView;
     }

@@ -79,7 +79,7 @@ public class TransferActivity extends AppCompatActivity {
                     Toast.makeText(TransferActivity.this, "Vui lòng nhập đúng định dạng yyyy-mm", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                tvTitle = findViewById(R.id.y_m_time_leave);
+                tvTitle = findViewById(R.id.tvLitleTrans);
                 if(y_m.getText().toString().isEmpty()) {
                     Toast.makeText(TransferActivity.this, "Vui lòng nhập để tìm kiếm", Toast.LENGTH_SHORT).show();
                 } else {
@@ -103,22 +103,17 @@ public class TransferActivity extends AppCompatActivity {
                 data = response.body();
                 for (HashMap<String, Object> trans_fer : data.getData()) {
 //                    try {
-//                    Integer id = (int) Double.parseDouble(trans_fer.get("id").toString());
-                    Integer staff_id = (int) Double.parseDouble(trans_fer.get("staff_id").toString());
-                    Integer old_department =  (int) Double.parseDouble(trans_fer.get("old_department").toString());
-                    Integer new_department = (int) Double.parseDouble(trans_fer.get("new_department").toString());
-//                    Boolean old_manager_approved =  Boolean.parseBoolean(trans_fer.get("old_manager_approved").toString());
-//                    Boolean new_manager_approved =  Boolean.parseBoolean(trans_fer.get("new_manager_approved").toString());
-//                    Boolean manager_approved =  Boolean.parseBoolean(trans_fer.get("manager_approved").toString());
-//                    Integer hr_approved = (int) Double.parseDouble(trans_fer.get("hr_approved").toString());
-//                    Double new_salary = Double.parseDouble(trans_fer.get("new_salary").toString());
-//                    Date  created_at = new SimpleDateFormat("dd-MM-yyyy").parse(trans_fer.get("created_at").toString());
-//                    Integer created_by = (int) Double.parseDouble(trans_fer.get("created_by").toString());
-//                    String note_manager = trans_fer.get("note_manager").toString();
-//                    String note = trans_fer.get("note").toString();
-//                    Boolean del = Boolean.parseBoolean(trans_fer.get("del").toString());
+                    String staff_transfer = trans_fer.get("staff_transfer").toString();
+                    String old_department_name = trans_fer.get("old_department_name").toString();
+                    String new_department_name = trans_fer.get("new_department_name").toString();
+                    Boolean old_manager_approved =  Boolean.parseBoolean(trans_fer.get("old_manager_approved").toString());
+                    Boolean new_manager_approved =  Boolean.parseBoolean(trans_fer.get("new_manager_approved").toString());
+                    Boolean manager_approved =  Boolean.parseBoolean(trans_fer.get("manager_approved").toString());
+//
 
-                    arrTransfer.add(new Transfer(staff_id,old_department, new_department));
+                    arrTransfer.add(new Transfer( staff_transfer,old_department_name,
+                            new_department_name, old_manager_approved,
+                            new_manager_approved, manager_approved));
 //                    } catch (ParseException e) {
 //                        e.printStackTrace();
 //                    }
