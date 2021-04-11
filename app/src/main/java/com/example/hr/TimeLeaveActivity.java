@@ -107,7 +107,6 @@ public class TimeLeaveActivity extends AppCompatActivity {
 
                     Integer type = (int) Double.parseDouble(time_leave.get("type").toString());
                     Integer is_approved = (int) Double.parseDouble(time_leave.get("is_approved").toString());
-
                     arrTimeLeave.add(new TimeLeave(day_time_leave, type, number_time, is_approved));
                 }
                 timeLeaveAdapter.notifyDataSetChanged();

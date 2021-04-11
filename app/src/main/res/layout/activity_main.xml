@@ -121,6 +121,31 @@
                 android:textColor="@color/black"
                 android:textSize="18sp" />
         </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/main_transfer"
+                android:layout_width="205dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/icon_male" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Điều Chuyển Phòng Ban"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </TableRow>
     </TableLayout>
 
 </LinearLayout>

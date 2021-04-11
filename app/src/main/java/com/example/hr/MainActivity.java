@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView time_leave;
     ImageView special_date;
     ImageView request_ot;
+    ImageView main_transfer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         clickSpecialDate();
         clickRequestOverTime();
         checkLogin();
+        clickTransfer();
     }
 
     private void clickRequestOverTime() {
@@ -85,6 +87,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    private void clickTransfer() {
+        main_transfer = findViewById(R.id.main_transfer);
+
+        main_transfer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TransferActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 
 
     static Boolean checkDateFormat(String date){

@@ -45,6 +45,10 @@ public interface ApiService {
     Call<Data> getListRequestOt(@Query("special_date_from") String special_date_from,
                                 @Query("staff_request") Integer staff_request,
                                 @Query("department_request") Integer department_request);
+    @GET("/transfer/list")
+    Call<Data> getListTransfer(@Query("day_get") String day_get,
+                                @Query("department") Integer department);
+
 //    @POST("/check-in-out/get-staff-time")
 //    Call<Data> getListCheckIn(@Field("staff_id") int staff_id, @Field("y_m") Date y_m);
 }
