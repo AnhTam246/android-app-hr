@@ -61,7 +61,7 @@ public class TransferAdapter extends BaseAdapter {
 
         Transfer transfer = listTransfers.get(position);
         holder.txtStaffID.setText(transfer.getStaff_transfer());
-        holder.txtOld.setText(transfer.getOld_department_name().toString());
+        holder.txtOld.setText(transfer.getNew_department_name3().toString());
         holder.txtNew.setText(transfer.getNew_department_name());
 
         String approve = "Chưa duyệt";

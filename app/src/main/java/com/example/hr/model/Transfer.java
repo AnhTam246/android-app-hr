@@ -3,15 +3,17 @@ package com.example.hr.model;
 import java.util.Date;
 
 public class Transfer {
+    private Integer staff_id;
     private String staff_transfer;
-    private String old_department_name;
+    private String new_department_name3;
     private String new_department_name;
     private boolean old_manager_approved;
     private boolean new_manager_approved;
     private boolean manager_approved;
 
-    public Transfer(String staff_transfer, String old_department_name, String new_department_name,  boolean old_manager_approved, boolean new_manager_approved, boolean manager_approved) {
-        this.old_department_name = old_department_name;
+    public Transfer(Integer staff_id, String staff_transfer, String new_department_name3, String new_department_name,  boolean old_manager_approved, boolean new_manager_approved, boolean manager_approved) {
+        this.staff_id = staff_id;
+        this.new_department_name3 = new_department_name3;
         this.new_department_name = new_department_name;
         this.staff_transfer= staff_transfer;
         this.old_manager_approved = old_manager_approved;
@@ -21,12 +23,20 @@ public class Transfer {
 
     }
 
-    public void setOld_department_name(String old_department_name) {
-        this.old_department_name = old_department_name;
+    public void setStaff_id(Integer staff_id) {
+        this.staff_id = staff_id;
     }
 
-    public String getOld_department_name() {
-        return old_department_name;
+    public Integer getStaff_id() {
+        return staff_id;
+    }
+
+    public String getNew_department_name3() {
+        return new_department_name3;
+    }
+
+    public void setNew_department_name3(String new_department_name3) {
+        this.new_department_name3 = new_department_name3;
     }
 
     public String getNew_department_name() {

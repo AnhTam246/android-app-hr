@@ -41,6 +41,7 @@ public class TransferActivity extends AppCompatActivity {
     EditText y_m;
     Button btnSearch;
     TextView tvTitle;
+    StaffLogin staffLogin;
 
 
     @Override
@@ -59,7 +60,7 @@ public class TransferActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = preferences.getString("StaffLogin", "");
-        StaffLogin staffLogin = gson.fromJson(json, StaffLogin.class);
+        staffLogin = gson.fromJson(json, StaffLogin.class);
         data = new Data();
         lvTransfers = (ListView) findViewById(R.id.lvTransfer);
         arrTransfer = new ArrayList<>();
@@ -75,12 +76,12 @@ public class TransferActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 y_m = findViewById(R.id.y_m_time_leave);
-                if(checkDateFormat(y_m.getText().toString()) == false) {
+                if (checkDateFormat(y_m.getText().toString()) == false) {
                     Toast.makeText(TransferActivity.this, "Vui lòng nhập đúng định dạng yyyy-mm", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 tvTitle = findViewById(R.id.tvLitleTrans);
-                if(y_m.getText().toString().isEmpty()) {
+                if (y_m.getText().toString().isEmpty()) {
                     Toast.makeText(TransferActivity.this, "Vui lòng nhập để tìm kiếm", Toast.LENGTH_SHORT).show();
                 } else {
                     lvTransfers = (ListView) findViewById(R.id.lvTransfer);
@@ -101,21 +102,41 @@ public class TransferActivity extends AppCompatActivity {
             public void onResponse(Call<Data> call, Response<Data> response) {
                 Toast.makeText(TransferActivity.this, "Call API Success", Toast.LENGTH_SHORT).show();
                 data = response.body();
-                for (HashMap<String, Object> trans_fer : data.getData()) {
-//                    try {
-                    String staff_transfer = trans_fer.get("staff_transfer").toString();
-                    String old_department_name = trans_fer.get("old_department_name").toString();
-                    String new_department_name = trans_fer.get("new_department_name").toString();
-                    Boolean old_manager_approved =  Boolean.parseBoolean(trans_fer.get("old_manager_approved").toString());
-                    Boolean new_manager_approved =  Boolean.parseBoolean(trans_fer.get("new_manager_approved").toString());
-                    Boolean manager_approved =  Boolean.parseBoolean(trans_fer.get("manager_approved").toString());
 
-                    arrTransfer.add(new Transfer( staff_transfer,old_department_name,
-                            new_department_name, old_manager_approved,
-                            new_manager_approved, manager_approved));
-//                    } catch (ParseException e) {
-//                        e.printStackTrace();
-//                    }
+                for (HashMap<String, Object> trans_fer : data.getData()) {
+                    if (staffLogin.getDepartment() == 2 || staffLogin.getDepartment() == 5) {
+//                         hr hoặc giám đốc
+
+                        Integer staff_id = (int) Double.parseDouble(trans_fer.get("staff_id").toString());
+                        String staff_transfer = trans_fer.get("staff_transfer").toString();
+                        String new_department_name3 = trans_fer.get("new_department_name3").toString();
+                        String new_department_name = trans_fer.get("new_department_name").toString();
+                        Boolean old_manager_approved = Boolean.parseBoolean(trans_fer.get("old_manager_approved").toString());
+                        Boolean new_manager_approved = Boolean.parseBoolean(trans_fer.get("new_manager_approved").toString());
+                        Boolean manager_approved = Boolean.parseBoolean(trans_fer.get("manager_approved").toString());
+
+                        arrTransfer.add(new Transfer(staff_id, staff_transfer, new_department_name3,
+                                new_department_name, old_manager_approved,
+                                new_manager_approved, manager_approved));
+                    } else {
+                        // cá nhân
+                        Integer staff_id = (int) Double.parseDouble(trans_fer.get("staff_id").toString());
+                        if (staffLogin.getId() == staff_id) {
+
+                            String staff_transfer = trans_fer.get("staff_transfer").toString();
+                            String new_department_name3 = trans_fer.get("new_department_name3").toString();
+                            String new_department_name = trans_fer.get("new_department_name").toString();
+                            Boolean old_manager_approved = Boolean.parseBoolean(trans_fer.get("old_manager_approved").toString());
+                            Boolean new_manager_approved = Boolean.parseBoolean(trans_fer.get("new_manager_approved").toString());
+                            Boolean manager_approved = Boolean.parseBoolean(trans_fer.get("manager_approved").toString());
+
+                            arrTransfer.add(new Transfer(staff_id, staff_transfer, new_department_name3,
+                                    new_department_name, old_manager_approved,
+                                    new_manager_approved, manager_approved));
+                        }
+                    }
+
+
                 }
                 transferAdapter.notifyDataSetChanged();
             }
@@ -149,7 +170,7 @@ public class TransferActivity extends AppCompatActivity {
                 return true;
 
             case R.id.logout:
-                SharedPreferences preferences = getSharedPreferences("com.example.hr",Context.MODE_PRIVATE);
+                SharedPreferences preferences = getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.clear();
                 editor.commit();
@@ -169,7 +190,7 @@ public class TransferActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("com.example.hr", Context.MODE_PRIVATE);
         String json = preferences.getString("StaffLogin", "");
 
-        if(json == "") {
+        if (json == "") {
             Intent intent = new Intent(TransferActivity.this, LoginActivity.class);
             startActivity(intent);
             Toast.makeText(this, "Vui lòng đăng nhập", Toast.LENGTH_SHORT).show();

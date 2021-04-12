@@ -113,8 +113,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-
     static Boolean checkDateFormat(String date) {
         if (date == null || !date.matches("\\d{4}-\\d{2}"))
             return false;
