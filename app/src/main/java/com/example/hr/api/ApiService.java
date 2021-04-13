@@ -48,6 +48,9 @@ public interface ApiService {
 
     @GET("/contract/by-staff")
     Call<Data> getListContractByStaff(@Query("staff_id") Integer staff_id);
+
+    @GET("/salary/find-salary-by-staff")
+    Call<Data> getListSalaryByStaffId(@Query("staff_id") Integer staff_id);
 //    @POST("/check-in-out/get-staff-time")
 //    Call<Data> getListCheckIn(@Field("staff_id") int staff_id, @Field("y_m") Date y_m);
 }

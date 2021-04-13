@@ -86,11 +86,9 @@ public class ListContractActivity extends AppCompatActivity {
                 //Toast.makeText(LoginActivity.this, "Call API Success", Toast.LENGTH_SHORT).show();
                 data = response.body();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                Gson gson = new Gson();
 
                 for (HashMap<String, Object> contract : data.getData()) {
                     try {
-                        System.out.println(contract.get("id").toString());
                         double _id = Double.parseDouble(contract.get("id").toString());
                         double _staffId = Double.parseDouble(contract.get("staffId").toString());
                         int id = (int) _id;
