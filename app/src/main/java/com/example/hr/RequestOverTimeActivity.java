@@ -150,10 +150,6 @@ public class RequestOverTimeActivity extends AppCompatActivity {
                 startActivity(intent2);
                 return true;
 
-
-            case R.id.miContract:
-                startActivity(new Intent(RequestOverTimeActivity.this, ListContractActivity.class));
-                return true;
             case R.id.miSalary:
                 startActivity(new Intent(RequestOverTimeActivity.this, ListSalaryActivity.class));
                 return true;

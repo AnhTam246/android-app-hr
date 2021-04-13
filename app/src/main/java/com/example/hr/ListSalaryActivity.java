@@ -151,9 +151,7 @@ public class ListSalaryActivity extends AppCompatActivity {
                 Intent intent2 = new Intent(ListSalaryActivity.this, ProfileActivity.class);
                 startActivity(intent2);
                 return true;
-            case R.id.miContract:
-                startActivity(new Intent(ListSalaryActivity.this, ListContractActivity.class));
-                return true;
+
             case R.id.miSalary:
                 startActivity(new Intent(ListSalaryActivity.this, ListSalaryActivity.class));
                 return true;

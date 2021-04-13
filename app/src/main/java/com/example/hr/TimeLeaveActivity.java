@@ -107,7 +107,6 @@ public class TimeLeaveActivity extends AppCompatActivity {
 
                     Integer type = (int) Double.parseDouble(time_leave.get("type").toString());
                     Integer is_approved = (int) Double.parseDouble(time_leave.get("is_approved").toString());
-
                     arrTimeLeave.add(new TimeLeave(day_time_leave, type, number_time, is_approved));
                 }
                 timeLeaveAdapter.notifyDataSetChanged();
@@ -138,9 +137,7 @@ public class TimeLeaveActivity extends AppCompatActivity {
                 Intent intent2 = new Intent(TimeLeaveActivity.this, ProfileActivity.class);
                 startActivity(intent2);
                 return true;
-            case R.id.miContract:
-                startActivity(new Intent(TimeLeaveActivity.this, ListContractActivity.class));
-                return true;
+
             case R.id.miSalary:
                 startActivity(new Intent(TimeLeaveActivity.this, ListSalaryActivity.class));
                 return true;

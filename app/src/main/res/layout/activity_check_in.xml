@@ -146,7 +146,7 @@
                     <TextView
                         android:id="@+id/tvOt"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="00:00:00"
                         android:textColor="@color/black"
                         android:textSize="18dp" />

@@ -135,9 +135,7 @@ public class ListContractActivity extends AppCompatActivity {
                 Intent intent2 = new Intent(ListContractActivity.this, ProfileActivity.class);
                 startActivity(intent2);
                 return true;
-            case R.id.miContract:
-                startActivity(new Intent(ListContractActivity.this, ListContractActivity.class));
-                return true;
+
             case R.id.miSalary:
                 startActivity(new Intent(ListContractActivity.this, ListSalaryActivity.class));
                 return true;

@@ -46,6 +46,10 @@ public interface ApiService {
                                 @Query("staff_request") Integer staff_request,
                                 @Query("department_request") Integer department_request);
 
+    @GET("/transfer/list")
+    Call<Data> getListTransfer(@Query("day_get") String day_get,
+                                @Query("department") Integer department);
+
     @GET("/contract/by-staff")
     Call<Data> getListContractByStaff(@Query("staff_id") Integer staff_id);
 
