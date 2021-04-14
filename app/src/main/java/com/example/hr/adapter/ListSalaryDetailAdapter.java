@@ -79,7 +79,7 @@ public class ListSalaryDetailAdapter extends BaseAdapter {
         String fromDate = simpleDateFormat.format(detail.getSalaryDetail().getFromDate());
         String endDate = simpleDateFormat.format(detail.getSalaryDetail().getToDate());
         String baseSalary = decimalFormat.format(detail.getBaseSalaryContract());
-        String totalAllowance = decimalFormat.format(detail.getBaseSalaryContract());
+        String totalAllowance = decimalFormat.format(detail.getTotalAllowance());
         String totalInsurance = decimalFormat.format(detail.getTotalInsurance());
         String salaryActuallyReceive = decimalFormat.format(detail.getSalaryActuallyReceived());
 
